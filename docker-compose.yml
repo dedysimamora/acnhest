@@ -17,6 +17,9 @@ services:
       - "127.0.0.1:${DB_PORT:-5432}:5432"
     volumes:
       - ancestry-data:/var/lib/postgresql/data
+    networks:
+      ancestry:
+        aliases: [db]
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
       interval: 5s
@@ -40,6 +43,14 @@ services:
       COOKIE_SECURE: ${COOKIE_SECURE:-}
     ports:
       - "${APP_PORT:-3000}:3000"
+    networks:
+      - ancestry
 
 volumes:
   ancestry-data:
+
+# Jaringan bernama tetap agar app selalu bisa menemukan "db",
+# apa pun nama folder / versi docker compose yang dipakai.
+networks:
+  ancestry:
+    name: ancestry-net
