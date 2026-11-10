@@ -55,7 +55,8 @@ Aplikasi berjalan di `http://<server>:3000` (atur dengan `APP_PORT`). Yang terja
 - Image dibangun multi-stage dengan `output: "standalone"` Next.js (±235 MB), berjalan sebagai user non-root.
 - Saat aplikasi start, tabel dibuat/diperbarui dan akun admin pertama dibuat dari `.env`
   (lihat `src/instrumentation.ts` → `src/lib/migrate.ts`). Tidak perlu menjalankan migrasi manual.
-- PostgreSQL disimpan di volume `ancestry-data` dan port-nya hanya terbuka untuk `127.0.0.1`.
+- PostgreSQL disimpan di volume `ancestry-data` dan **tidak** membuka port ke host (app mengaksesnya lewat
+  jaringan internal `ancestry-net`), jadi aman berdampingan dengan Postgres lain di server yang sama.
 - Healthcheck: `GET /api/health`.
 
 Update ke versi baru: `docker compose up -d --build` lagi. Backup database:
@@ -77,7 +78,7 @@ Butuh Node.js 20+ dan Docker (atau PostgreSQL sendiri).
 ```bash
 cp .env.example .env.local      # sesuaikan bila perlu
 npm install
-npm run db:up                   # menyalakan PostgreSQL saja via docker compose
+npm run db:up                   # menyalakan PostgreSQL saja (port 5432 di localhost, lihat docker-compose.dev.yml)
 npm run dev                     # tabel + akun admin dibuat otomatis saat start
 npm run db:seed-demo            # (opsional) contoh silsilah 5 generasi
 ```

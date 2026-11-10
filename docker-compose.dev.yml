@@ -1,0 +1,6 @@
+# Khusus development lokal: membuka port Postgres ke host supaya `npm run dev` bisa terhubung.
+# Dipakai oleh `npm run db:up`. Jangan dipakai di server production.
+services:
+  db:
+    ports:
+      - "127.0.0.1:${DB_PORT:-5432}:5432"

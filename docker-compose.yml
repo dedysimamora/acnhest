@@ -1,5 +1,5 @@
 # Menjalankan aplikasi + PostgreSQL:   docker compose up -d --build
-# Hanya database (untuk development):  docker compose up -d db
+# Hanya database (untuk development):  npm run db:up   (memakai docker-compose.dev.yml)
 #
 # Konfigurasi dibaca dari file .env di folder ini (contoh: .env.production.example).
 
@@ -12,9 +12,9 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-ancestry}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ancestry}
       POSTGRES_DB: ${POSTGRES_DB:-ancestry}
-    ports:
-      # Hanya bisa diakses dari mesin ini, tidak terbuka ke jaringan.
-      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    # Sengaja tidak membuka port ke host: app mengakses database lewat jaringan internal
+    # "ancestry-net", jadi tidak bentrok dengan Postgres lain di server.
+    # Untuk development lokal, port dibuka lewat docker-compose.dev.yml.
     volumes:
       - ancestry-data:/var/lib/postgresql/data
     networks:

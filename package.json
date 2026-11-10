@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "db:up": "docker compose up -d db",
+    "db:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d db",
     "db:setup": "node --env-file=.env.local scripts/db-setup.mjs",
     "db:seed-demo": "node --env-file=.env.local scripts/seed-demo.mjs"
   },
