@@ -62,7 +62,7 @@ export const GET = handle(async () => {
   );
 
   const wb = new ExcelJS.Workbook();
-  wb.creator = "Silsilah Keluarga";
+  wb.creator = "Pomparan Op Toga Sonang";
   wb.created = new Date();
   const ws = wb.addWorksheet("Anggota Keluarga", { views: [{ state: "frozen", ySplit: 1 }] });
 
@@ -101,7 +101,7 @@ export const GET = handle(async () => {
   return new Response(buffer as ArrayBuffer, {
     headers: {
       "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "content-disposition": `attachment; filename="silsilah-keluarga-${stamp}.xlsx"`,
+      "content-disposition": `attachment; filename="pomparan-op-toga-sonang-${stamp}.xlsx"`,
       "cache-control": "no-store",
     },
   });

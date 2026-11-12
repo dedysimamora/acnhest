@@ -1,4 +1,4 @@
-# Silsilah Keluarga
+# Pomparan Op Toga Sonang
 
 Aplikasi web *mobile-first* untuk memvisualisasikan pohon keturunan keluarga.
 Next.js 16 (App Router) + Tailwind CSS 4 + PostgreSQL.
@@ -35,7 +35,7 @@ PostgreSQL (db/schema.sql)
 
 ## Export Excel
 
-Menu **Akun → Export ke Excel** (atau `GET /api/export`) mengunduh `silsilah-keluarga-YYYY-MM-DD.xlsx`
+Menu **Akun → Export ke Excel** (atau `GET /api/export`) mengunduh `pomparan-op-toga-sonang-YYYY-MM-DD.xlsx`
 berisi seluruh anggota yang sudah disetujui. Baris judul dibekukan dan **setiap kolom punya filter**:
 No, ID, Nama Lengkap, Jenis Kelamin, Tanggal Lahir, Tahun Lahir, Tempat Lahir, Tanggal Wafat, Status
 (Hidup/Wafat), Generasi, Garis (Keturunan/Pasangan), Ayah, Ibu, Pasangan, Jumlah Anak, Catatan.

@@ -39,7 +39,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
           <span className="inline-flex rounded-3xl bg-emerald-700 p-4 text-white shadow-lg">
             <TreeIcon width={32} height={32} />
           </span>
-          <h1 className="mt-4 text-2xl font-bold text-stone-900">Silsilah Keluarga</h1>
+          <h1 className="mt-4 text-2xl font-bold text-stone-900">Pomparan Op Toga Sonang</h1>
           <p className="mt-1 text-sm text-stone-500">{isLogin ? "Masuk untuk melihat pohon keluarga" : "Buat akun baru"}</p>
         </div>
 

@@ -44,7 +44,8 @@ export function PersonFields({
   idPrefix: string;
   lockGender?: boolean;
 }) {
-  const set = <K extends keyof PersonDraft>(k: K, v: PersonDraft[K]) => onChange({ ...value, [k]: v });
+  const set = <K extends keyof PersonDraft>(k: K, v: PersonDraft[K]) =>
+    onChange({ ...value, [k]: v });
   return (
     <div className="space-y-4">
       <div>
@@ -56,7 +57,7 @@ export function PersonFields({
           className={inputCls}
           value={value.full_name}
           onChange={(e) => set("full_name", e.target.value)}
-          placeholder="Contoh: Siti Aminah"
+          placeholder="Contoh: Reymond Hans"
           autoComplete="off"
           required
         />
@@ -98,13 +99,25 @@ export function PersonFields({
           <label htmlFor={`${idPrefix}-birth`} className={labelCls}>
             Tanggal lahir
           </label>
-          <input id={`${idPrefix}-birth`} type="date" className={inputCls} value={value.birth_date} onChange={(e) => set("birth_date", e.target.value)} />
+          <input
+            id={`${idPrefix}-birth`}
+            type="date"
+            className={inputCls}
+            value={value.birth_date}
+            onChange={(e) => set("birth_date", e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor={`${idPrefix}-death`} className={labelCls}>
             Tanggal wafat
           </label>
-          <input id={`${idPrefix}-death`} type="date" className={inputCls} value={value.death_date} onChange={(e) => set("death_date", e.target.value)} />
+          <input
+            id={`${idPrefix}-death`}
+            type="date"
+            className={inputCls}
+            value={value.death_date}
+            onChange={(e) => set("death_date", e.target.value)}
+          />
         </div>
       </div>
 
@@ -112,7 +125,13 @@ export function PersonFields({
         <label htmlFor={`${idPrefix}-place`} className={labelCls}>
           Tempat lahir
         </label>
-        <input id={`${idPrefix}-place`} className={inputCls} value={value.birth_place} onChange={(e) => set("birth_place", e.target.value)} placeholder="Contoh: Bandung" />
+        <input
+          id={`${idPrefix}-place`}
+          className={inputCls}
+          value={value.birth_place}
+          onChange={(e) => set("birth_place", e.target.value)}
+          placeholder="Contoh: Bandung"
+        />
       </div>
 
       <div>
